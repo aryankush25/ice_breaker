@@ -1,8 +1,10 @@
 from dotenv import load_dotenv
+
 # import os
 
 from langchain_core.prompts import PromptTemplate
 from langchain_core.output_parsers import StrOutputParser
+
 # from langchain_openai import ChatOpenAI
 from langchain_ollama import ChatOllama
 from third_parties.linkedin import scrape_linkedin_profile
@@ -30,10 +32,10 @@ if __name__ == "__main__":
 
     information = scrape_linkedin_profile("https://www.linkedin.com/in/aryankush25")
 
-    print('information')
+    print("information")
     print(information)
 
     res = chain.invoke({"information": information})
 
-    print('result')
+    print("result")
     print(res)

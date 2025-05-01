@@ -1,10 +1,11 @@
 import os
 import requests
 
+
 def scrape_linkedin_profile(linkedin_profile_url: str, mock: bool = False):
     """
-        Scrape a LinkedIn profile and return the information.
-        Manually scrape the information from the LinkedIn profile.
+    Scrape a LinkedIn profile and return the information.
+    Manually scrape the information from the LinkedIn profile.
     """
 
     if mock:
@@ -14,7 +15,7 @@ def scrape_linkedin_profile(linkedin_profile_url: str, mock: bool = False):
         api_endpoint = "https://api.scrapin.io/enrichment/profile"
         params = {
             "apikey": os.getenv("SCRAPIN_API_KEY"),
-            "linkedInUrl": linkedin_profile_url
+            "linkedInUrl": linkedin_profile_url,
         }
         response = requests.get(api_endpoint, params=params, timeout=10)
 
@@ -22,8 +23,7 @@ def scrape_linkedin_profile(linkedin_profile_url: str, mock: bool = False):
     data = {
         k: v
         for k, v in data.items()
-        if v not in ([], "", "", None)
-        and k not in ("certifications")
+        if v not in ([], "", "", None) and k not in ("certifications")
     }
 
     return data
