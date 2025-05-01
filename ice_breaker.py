@@ -3,7 +3,7 @@ from dotenv import load_dotenv
 
 from langchain_core.prompts import PromptTemplate
 from langchain_core.output_parsers import StrOutputParser
-from langchain_openai import ChatOpenAI
+# from langchain_openai import ChatOpenAI
 from langchain_ollama import ChatOllama
 from third_parties.linkedin import scrape_linkedin_profile
 
@@ -28,8 +28,12 @@ if __name__ == "__main__":
 
     chain = summary_prompt_template | llm | StrOutputParser()
 
-    information = scrape_linkedin_profile("https://www.linkedin.com/in/aryankush25", mock=True)
+    information = scrape_linkedin_profile("https://www.linkedin.com/in/aryankush25")
+
+    print('information')
+    print(information)
 
     res = chain.invoke({"information": information})
 
+    print('result')
     print(res)

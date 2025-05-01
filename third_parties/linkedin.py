@@ -1,8 +1,5 @@
 import os
 import requests
-from dotenv import load_dotenv
-
-load_dotenv()
 
 def scrape_linkedin_profile(linkedin_profile_url: str, mock: bool = False):
     """
@@ -33,4 +30,4 @@ def scrape_linkedin_profile(linkedin_profile_url: str, mock: bool = False):
 
 
 if __name__ == "__main__":
-    print(scrape_linkedin_profile("https://www.linkedin.com/in/eden-marco", mock=True))
+    print(scrape_linkedin_profile("https://www.linkedin.com/in/aryankush25"))
